@@ -1,0 +1,78 @@
+#fm_menu {
+    width: 100%;
+    font-family: arial,tahoma,verdana,helvetica;
+    font-size: 14px;
+    padding-bottom: 10px;
+    background: url(bottom.gif) no-repeat  right bottom;
+    -webkit-background-size: 100%; /*for webKit*/
+    -moz-background-size: 100%; /*Mozilla*/
+    -o-background-size: 100%; /*opera*/
+    background-size: 100%; /*generic*/
+    color: #fff;
+
+    overflow: scroll;
+}
+#fm_menu div {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(40%, #61A8FA), color-stop(70%, #76B0F5) , color-stop(100%, #98C5FA));
+    background:-moz-linear-gradient( center top, #61A8FA 40%,#76B0F5 70%, #98C5FA 100% );
+    overflow: hidden;
+}
+#fm_menu div:first-child {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(40%, #61A8FA), color-stop(70%, #76B0F5) , color-stop(100%, #98C5FA));
+    background:-moz-linear-gradient( center top, #61A8FA 40%,#76B0F5 70%, #98C5FA 100% );
+     -moz-border-radius-topleft: 4px/*{cornerRadius}*/; 
+     -webkit-border-top-left-radius: 4px;
+     -moz-border-radius-topright: 4px/*{cornerRadius}*/; 
+     -webkit-border-top-right-radius: 4px;
+    overflow: hidden;
+}
+#fm_menu div.collapsed {
+    height: 25px;
+}
+#fm_menu div span {
+    display: block;
+    padding: 1px 25px;
+    font-weight: bold;
+    color: white;
+    /*background-color: #2172B3;*/
+    background:#337ab7 url(xuong.png) no-repeat 2px center;
+    /*background:  -moz-linear-gradient(center top , #2071B2 20%, #74A5C6 70%, #A0BFD1 100%) no-repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+    cursor: default;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+
+}
+#fm_menu div.collapsed span {
+    background-image: url(ngang.png);
+}
+#fm_menu div a {
+    padding: 1px 10px;
+    background: #fdfdfd;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    color: #066;
+    font-size: 13px;
+}
+#fm_menu div a.current {
+    background : #ccc;
+}
+#fm_menu div a:hover {
+    background : #B5D4E8 url(linkarrow.gif) no-repeat right center;
+/*    background : url(linkarrow.gif) no-repeat right center;*/
+/*    background:-webkit-gradient( linear, left top, left bottom, color-stop(30%, #F5CF7D), color-stop(60%, #FAE2AF) , color-stop(100%, #FAEFD7));
+    background:-moz-linear-gradient( center top, #F5CF7D 30%,#FAE2AF 60%, #FAEFD7 100% );*/
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    
+}
+#fm_menu *{
+    text-overflow:hidden;
+    white-space: nowrap;
+}
+#fmfrmmanager_leftmenu div div{
+    border:1px solid #b3bab7;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-bottom: 2px;
+}

@@ -1,0 +1,54 @@
+table.tabBlock
+        {
+            background-color:#57574f;
+            border:solid 0px #FFA54F !important;
+            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+            max-width:200px;
+            width:100%;
+            overflow:hidden;
+            display:block;
+        }
+        table.tabBlock tr td{
+            border-width : 0px !important;  
+        }
+        .clock
+        {
+            vertical-align:middle;
+            border:solid 0px #FFA54F !important;
+            font-family:Orbitron;
+            font-size:30px;
+            font-weight:normal;
+            color:#FFF;
+            padding:0px 5px;
+            border:solid 0px #FFA54F;   
+        }
+        .clocklg 
+        {
+            background-color:#57574f;
+            border:solid 0px #FFA54F !important;   
+            vertical-align:middle; 
+            font-family:Orbitron;
+            font-size:14px;
+            font-weight:normal;
+            color:#FFF;
+        }
+        
+   table.subBlock{
+      border-width : 0px !important;
+      width: 100%;
+      margin-left: 0px!important;  
+      
+   }
+   table.subBlock tr td{
+    border-width : 0px !important;
+    padding-left: 2px!important;     
+   }
+        
+        /* latin */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Orbitron-Light'), local('Orbitron-Regular'), url(http://fonts.gstatic.com/s/orbitron/v7/HmnHiRzvcnQr8CjBje6GQvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}

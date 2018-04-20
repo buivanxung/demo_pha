@@ -1,0 +1,362 @@
+.colorroomname{
+font-size: 16px;
+font-size: 15;
+text-align: center;
+}
+
+.colorroomname div{
+font-size: 16px;
+font-size: 15;
+text-align: center;
+}
+.room-title-1 {
+    height: 22px;
+    padding: 0;
+    text-align: center;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.room-title-1 > .center {
+    height: 22px;
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url(../box/box1-border-top.png);
+    background-repeat: repeat-x;
+    padding: 0;
+    margin: 0;
+}
+.room-title-1 > .center > .clsOn, .room-title-1 > .center > .cf_clsOff {
+    height: 19px;
+    text-align: center;
+    background-image: url(../box/box1-title.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: #fff;
+}
+.room-title-1 > .left {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box1-left-top.png);
+    background-repeat: no-repeat;
+    margin-left: -22px;
+    right: 22px;
+}
+.room-title-1 > .right {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box1-right-top.png);
+    background-repeat: no-repeat;
+    margin-right: -22px;
+}
+.room-service-1 {
+    position: relative;
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.room-service-1 > .center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-service-1 > .left {
+    background-image: url(../box/box1-border-center.png);
+    background-repeat: repeat-y;
+    width: 2px;
+    height: 100%;
+    float: left;
+    margin-left: -2px;
+    right: 2px;
+}
+.room-service-1 > .right {
+    background-image: url(../box/box1-border-center.png);
+    background-repeat: repeat-y;
+    height: 100%;
+    width: 2px;
+    float: left;
+    margin-right: -2px;
+}
+.clock-1 {
+    background-image: url(../box/box1-border-center.png);
+    background-repeat: repeat-y;
+    background-position: left;
+}
+.room-button-1 {
+    background-image: url(../box/box1-border-center.png);
+    background-repeat: repeat-y;
+    background-position: right;
+}
+.room-footer-1 {
+    height: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.room-footer-1 > .center {
+    background-image: url(../box/box1-border-bottom.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 4px;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-footer-1 > .left {
+    background-image: url(../box/box1-left-bottom.png);
+    background-repeat: repeat-y;
+    width: 8px;
+    height: 4px;
+    float: left;
+    margin-left: -8px;
+    right: 8px;
+}
+.room-footer-1 > .right {
+    background-image: url(../box/box1-right-bottom.png);
+    background-repeat: repeat-y;
+    height: 4px;
+    width: 8px;
+    float: left;
+    margin-right: -8px;
+}
+/* Box 1 */
+
+/* Box 2 */
+.room-title-2 {
+    height: 22px;
+    padding: 0;
+    text-align: center;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.room-title-2 > .center {
+    height: 22px;
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url(../box/box2-border-top.png);
+    background-repeat: repeat-x;
+    padding: 0;
+    margin: 0;
+}
+.room-title-2 > .center > .clsOn, .room-title-2 > .center > .cf_clsOff {
+    height: 19px;
+    text-align: center;
+    background-image: url(../box/box2-title.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: #000;
+}
+.room-title-2 > .left {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box2-left-top.png);
+    background-repeat: no-repeat;
+    margin-left: -22px;
+    right: 22px;
+}
+.room-title-2 > .right {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box2-right-top.png);
+    background-repeat: no-repeat;
+    margin-right: -22px;
+}
+.room-service-2 {
+    position: relative;
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.room-service-2 > .center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-service-2 > .left {
+    background-image: url(../box/box2-border-center.png);
+    background-repeat: repeat-y;
+    width: 2px;
+    height: 100%;
+    float: left;
+    margin-left: -2px;
+    right: 2px;
+}
+.room-service-2 > .right {
+    background-image: url(../box/box2-border-center.png);
+    background-repeat: repeat-y;
+    height: 100%;
+    width: 2px;
+    float: left;
+    margin-right: -2px;
+}
+.clock-2 {
+    background-image: url(../box/box2-border-center.png);
+    background-repeat: repeat-y;
+    background-position: left;
+}
+.room-button-2 {
+    background-image: url(../box/box2-border-center.png);
+    background-repeat: repeat-y;
+    background-position: right;
+}
+.room-footer-2 {
+    height: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.room-footer-2 > .center {
+    background-image: url(../box/box2-border-bottom.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 4px;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-footer-2 > .left {
+    background-image: url(../box/box2-left-bottom.png);
+    background-repeat: repeat-y;
+    width: 8px;
+    height: 4px;
+    float: left;
+    margin-left: -8px;
+    right: 8px;
+}
+.room-footer-2 > .right {
+    background-image: url(../box/box2-right-bottom.png);
+    background-repeat: repeat-y;
+    height: 4px;
+    width: 8px;
+    float: left;
+    margin-right: -8px;
+}
+/* Box 2 */
+
+/* Box 3 */
+.room-title-3 {
+    height: 22px;
+    padding: 0;
+    text-align: center;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.room-title-3 > .center {
+    height: 22px;
+    width: 100%;
+    position: relative;
+    float: left;
+    background-image: url(../box/box3-border-top.png);
+    background-repeat: repeat-x;
+    padding: 0;
+    margin: 0;
+}
+.room-title-3 > .center > .clsOn, .room-title-3 > .center > .cf_clsOff {
+    height: 19px;
+    text-align: center;
+    background-image: url(../box/box3-title.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: #000;
+}
+.room-title-3 > .left {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box3-left-top.png);
+    background-repeat: no-repeat;
+    margin-left: -22px;
+    right: 22px;
+}
+.room-title-3 > .right {
+    float: left;
+    height: 22px;
+    width: 22px;
+    background-image: url(../box/box3-right-top.png);
+    background-repeat: no-repeat;
+    margin-right: -22px;
+}
+.room-service-3 {
+    position: relative;
+    height: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.room-service-3 > .center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-service-3 > .left {
+    background-image: url(../box/box3-border-center.png);
+    background-repeat: repeat-y;
+    width: 2px;
+    height: 100%;
+    float: left;
+    margin-left: -2px;
+    right: 2px;
+}
+.room-service-3 > .right {
+    background-image: url(../box/box3-border-center.png);
+    background-repeat: repeat-y;
+    height: 100%;
+    width: 2px;
+    float: left;
+    margin-right: -2px;
+}
+.clock-3 {
+    background-image: url(../box/box3-border-center.png);
+    background-repeat: repeat-y;
+    background-position: left;
+}
+.room-button-3 {
+    background-image: url(../box/box3-border-center.png);
+    background-repeat: repeat-y;
+    background-position: right;
+}
+.room-footer-3 {
+    height: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.room-footer-3 > .center {
+    background-image: url(../box/box3-border-bottom.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 4px;
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.room-footer-3 > .left {
+    background-image: url(../box/box3-left-bottom.png);
+    background-repeat: repeat-y;
+    width: 8px;
+    height: 4px;
+    float: left;
+    margin-left: -8px;
+    right: 8px;
+}
+.room-footer-3 > .right {
+    background-image: url(../box/box3-right-bottom.png);
+    background-repeat: repeat-y;
+    height: 4px;
+    width: 8px;
+    float: left;
+    margin-right: -8px;
+}

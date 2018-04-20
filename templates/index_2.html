@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>IOT PHADISTRIBUTION</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="iot.vn/css/jquery-ui.css">
+<link rel="stylesheet" href="iot.vn/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="iot.vn/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="iot.vn/css/clock.css"> 
+<link rel="stylesheet" type="text/css" href="iot.vn/css/superfish.css"> 
+<link rel="stylesheet" type="text/css" href="iot.vn/css/multiple-select.css" />   
+<link rel="stylesheet" type="text/css" href="iot.vn/css/bootstrap-datetime.css" />
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
+ 
+<script src="iot.vn/scripts/jquery.js"></script>
+<script src="iot.vn/scripts/jquery-1.12.0.min.js"></script>
+<script src="iot.vn/scripts/jquery-ui.js"></script> 
+<script>
+  
+   
+ 
+    
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+    lang_iot ='vi'; 
+    if(typeof(getCookie("lang_iot"))!='undefined'){
+     lang_iot = getCookie("lang_iot");      
+    }else{
+        var now = new Date();
+        now.setTime(now.getTime() + 24*365* 3600 * 1000);
+        document.cookie = "lang_iot=vi; expires=" + now.toUTCString() + "; path=/";
+    }
+   
+    
+ 
+    function sys_change_language(){
+        
+         if(lang_iot=='vi'){
+            var now = new Date();
+            now.setTime(now.getTime() + 24*365* 3600 * 1000);
+            document.cookie = "lang_iot=en; expires=" + now.toUTCString() + "; path=/";        
+ 
+         }else{
+            var now = new Date();
+            now.setTime(now.getTime() + 24*365* 3600 * 1000);
+            document.cookie = "lang_iot=vi; expires=" + now.toUTCString() + "; path=/";
+      
+         }
+         
+         xajax_changeLang(lang_iot);  
+                      
+           
+    }
+    var numday_report =[var._SESSION.num_day];   
+    var power_type    =[var._SESSION.current.power_type_id]; 
+    
+  $(document).delegate('.cls_onoff button','click',function(){
+	$(this).parent().find('button').removeClass('btn-danger').addClass('btn-default');
+	$(this).addClass('btn-danger');
+  });
+          
+    </script> 
+
+<script src="iot.vn/scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/common.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/constant_vi.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/jquery.jstepper.min.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/jquery.watermark.min.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/fm/cl_info.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/fm/cl_tracking.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/multiple-select.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/moment.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/bootstrap-datetime.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/jquery.dataTables.min.js">    </script>   
+<script type="text/javascript" src="iot.vn/scripts/dataTables.fixedColumns.min.js">    </script>   
+<script type="text/javascript" src="iot.vn/sdmenu/sdmenu.js">    </script>   
+ <script type="text/javascript" src="iot.vn/scripts/charts/highcharts.js"> </script>
+<script type="text/javascript" src="iot.vn/scripts/charts/highcharts.exporting.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOJht5W8PnJzEwBLQkW67TNUMbYp6AlMY&callback=initMap"></script>
+<script src="iot.vn/scripts/charts/highcharts.more.js"></script>
+<script type="text/javascript" src="iot.vn/scripts/onload.js"></script>
+
+<script type="text/javascript" src="iot.vn/scripts/pdf/jspdf.min.js"></script>   
+<script type="text/javascript" src="iot.vn/scripts/pdf/html2canvas.js"></script>   
+<script type="text/javascript" src="iot.vn/scripts/pdf/common.js"></script> 
+    [var.tplXajaxScript;htmlconv=no] 
+    
+    
+    
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" >
+<div id="div-main">
+<div class="container-fluid" >
+<div class="row cls_block" id="div_header" style="padding-top:10px;padding-bottom:5px">
+<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="padding-top:10px">
+  <img src="iot.vn/images/minhphu.jpg"  height="100px" id="img_logo" style="background-color:transparent">
+  </div> 
+  <div   class="col-xs-12 col-sm-12 col-md-8 col-lg-8" align="center">
+  <h4 style="float:center;color:#337ab7;font-family:times;padding-top:10px;" onclick="asignId(this)" class="cls_lang named" id="sys_title" data-toggle="modal" data-target="#w01_changeSysName"><b>HỆ THỐNG TỰ ĐỘNG GIÁM SÁT </b> </h4><h4 style="float:center;color:#337ab7;font-family:times" class="cls_lang named" onclick="asignId(this)" id="sys_subtitle" data-toggle="modal" data-target="#w01_changeSysName"><b>
+CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
+  </div>
+    <div   class="col-xs-12 col-sm-12 col-md-2 col-lg-2 container-fluid" style="padding-right:0px;margin-top:10px">
+    
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-fluid" style="background-color:#F3F3F3;max-width:220px;width:100%;margin-right:0px;padding:2px;">
+
+        <table class="tabBlock" align="center" cellspacing="0" cellpadding="0" border="0" style="margin-right:2px">
+            <tr><td class="clock" id="dc"></td> 
+                <td style="padding-left:0px">
+                    <table class="subBlock" cellpadding="0" cellspacing="0" border="0">     
+                        <tr><td class="clocklg" id="dc_hour"></td></tr>
+                        <tr><td class="clocklg" id="dc_second"></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    </div>
+    <div class="row" style="margin-bottom:0px"> 
+    <div   class="col-xs-8 col-sm-8 col-md-8 col-lg-8 container-fluid" style="padding-top:10px;background-color:white;font-size: 18px;" > 
+              <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" style="min-width: 80px; max-width: 150px;" type="button" data-toggle="dropdown">[var._SESSION.current.user_name]
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" onclick="frmchangepass_open()" data-toggle="modal" data-target="#w01_changepass"><img src="iot.vn/images/changepass.png" width="16" height="16" border="0" style="margin-right: 10px;margin-bottom: 5px;" />Đổi mật khẩu</a></li>
+      <li><a href="?m=logout"><img src="iot.vn/images/logout.png" width="16" height="16" border="0" style="margin-right: 10px; margin-bottom: 5px;" />Thoát</a></li>
+    </ul>
+  </div>
+    </div>                                                  
+    
+<div   class="col-xs-4 col-sm-4 col-md-4 col-lg-4 container-fluid" style="padding-top:10px;background-color:white" > 
+<img id="sys_flg_language" src="iot.vn/images/anh-flag.png" style="float:right" width="40px" height="32px" onclick="sys_change_language()"/>
+    </div>    
+                                              
+                                                  
+  </div> 
+  </div> 
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse" id="nav-menu" data-spy="affix" data-offset-top="140">
+  <div class="container-fluid">
+     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a data="section1" id="link_section1"   class="navbar-brand cls_module loadpage menu-selected cls_lang">TRANG CHỦ</a>
+    </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <!--<li><a  data="section1" id="link_section1"   class="cls_module loadpage menu-selected cls_lang">TRANG CHỦ</a></li>-->
+          <li><a  data="section2" id="link_section2"  data_page="w02_tracking.html"  class="cls_module loadpage cls_lang">THEO DÕI</a></li>
+          <li><a  data="section3" id="link_section3" data_page="w03_baocao.html" class="cls_module loadpage cls_lang">BÁO CÁO</a></li>
+          <li><a  data="section4" id="link_section4"  data_page="w04_config.html" class="cls_module loadpage cls_lang" >CẤU HÌNH</a></li>
+             </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" onclick="javascript:ExportPDF()" > Pdf</a></li>
+            <li><a href="#" id="helpdiv" > Trợ giúp</a></li>
+          <li><a href="?m=logout" class="cls_lang" id="btn_logout"> Thoát</a></li>
+    </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid section map-pdf" id="section1">
+<div class="row">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-fluid">
+ 
+    <div class="row cls_block" id="w01_pl_ao" >
+   
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-fluid cls_pad0">
+     <div class="row" >
+
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cls_good" style="height:150px;margin:0px 0px -2px -0px"><div class="title_top" id="w01_aotoan"></div>
+    <div class="title_bottom">(  
+    <font id="w01_num-antoan"> </font>) <font id="w01_title-antoan" class="cls_lang named">Ao an toàn</font></div></div>  
+   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cls_over" style="height:150px;margin:0px 0px -2px -0px"><div class="title_top" id="w01_canhbao"></div><div class="title_bottom">(<font id="w01_num-canhbao"></font>) <font id="w01_title-canhbao" class="cls_lang named">Ao cảnh báo</font></div></div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cls_unlink" style="height:150px;margin:0px 0px -8px 0px"><div class="title_top" id="w01_unlink">0%</div><div class="title_bottom" id="w01_title-khd">(0) Ao không hoạt động </div></div>
+     </div>
+   </div>    
+
+   </div>  
+</div>
+</div>
+<div class="row">
+<div id="w01_chart-map" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-fluid cls_block" >
+        <div id="gmap_canvas" style="min-height:500px;max-height:1000px;min-width:120px;max-width:1400px;width:auto"> 
+        <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+</div>
+</div>
+</div> 
+</div>  
+
+
+<div id="section2" class="container-fluid section" style="display:none">
+  
+</div>
+<div id="section3" class="container-fluid section" style="display:none;padding-left:0px;padding-right:0px;">  
+</div>
+<div id="section4" class="container-fluid section" style="padding-left:0px;padding-right:0px;display:none">  
+</div>
+
+</div>
+
+
+  <div class="modal fade" id="w01_changename" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="max-width:300px">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title cls_lang" >Thay Đổi Tên Ao</h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-reponsive" id="w01_changename_ten">
+           <input type="text" id="w01_txt_locname" class="w100"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default cls_lang" id="w01_savename">Lưu</button>
+          <button type="button" class="btn btn-default cls_lang" id="w01_closediaglog" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+      <input type="hidden" value="" id="w01_hd_wm"/>
+    </div>
+  </div>
+  
+ <div id="divWaiting" style="position:fixed;left:45%;top:40%;width:200px;heigth:80px"><img src="iot.vn/images/loading.gif"  style="z-index:10000;background-color:transparent" /></div>
+
+ 
+  <div class="modal fade" id="w01_changepass" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="max-width:400px">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title cls_lang" >Thay Đổi Mật khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-reponsive" id="w01_changepass">
+           <table border="0" width="100%" id="frmchangepass_tbl" cellpadding="0" class="table">
+        <tr>
+            <td align="right">Mật khẩu cũ</td>
+            <td  >
+                <input type="password"  name="frmchangepass_txtOldPass" id="frmchangepass_txtOldPass" style="width:100% ;"  ></td>
+             </tr>
+        <tr>
+            <td align="right">Mật khẩu mới</td>
+            <td >
+                <input class="txtRequired" type="password" name="frmchangepass_txtNewPass" style="width:100% ;" id="frmchangepass_txtNewPass" ></td>
+           
+        </tr>
+        <tr>
+            <td align="right">Mật khẩu xác nhận</td>
+            <td >
+                <input class="txtRequired" type="password" name="frmchangepass_txtNewPassConfirm" style="width:100% ;" id="frmchangepass_txtNewPassConfirm" ></td>
+                 </tr>
+    </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default cls_lang" id="w01_savepass">Cập Nhật</button>
+          <button type="button" class="btn btn-default cls_lang" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+      <input type="hidden" value="" id="w01_hd_wm"/>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="w01_changeSysName" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="max-width:700px">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title cls_lang" >Thay đổi tên hệ thống<h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-reponsive">
+           <table  class="w100 table" cellpadding="0" border="0">
+ <tr><td>Tên hiện tại</td><td id="oldtitle_vi"></td></tr>
+ <tr><td>Tên mới</td><td ><input type="text" id="newtitle_vi" class="w100"/></td></tr>
+  <tr><td>Current name</td><td id="oldtitle_en"></td></tr>
+ <tr><td>New name</td><td ><input type="text" id="newtitle_en" class="w100"/></td></tr>
+
+</table>
+          </div>
+        </div>
+        <div class="modal-footer">
+        <input type="hidden" value="" id="w01_hd_sysNameId"/>
+          <button type="button" class="btn btn-default cls_lang" id="updatetitle" onclick="updatetitle()">Cập Nhật</button>
+          <button type="button" class="btn btn-default cls_lang" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+  
+   <div class="modal fade" id="w02_control" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width:300px">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title cls_lang" >Bảng Điều Kiển Thiết Bị</h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-reponsive" id="">
+           <table border="0" width="100%" id="" cellpadding="0">
+        <tr>
+            <td align="right">Đèn :</td>
+            <td align="center" >
+                <div class="btn-group cls_onoff">
+    <button type="button" class="btn btn-sm  btn-danger">Tắt </button>
+    <button type="button" class="btn btn-sm  btn-default">Mở</button>
+    
+  </div></td>
+             </tr>
+        <tr>
+            <td align="right">Máy bơm oxy đáy :</td>
+            <td align="center">
+                 <div class="btn-group cls_onoff">
+    <button type="button" class="btn btn-sm  btn-danger ">Tắt </button>
+    <button type="button" class="btn btn-sm  btn-default">Mở</button>
+    
+  </div>
+				</td>
+           
+        </tr>
+        <tr>
+            <td align="right">Máy quạt bề mặt :</td>
+            <td align="center">
+                 <div class="btn-group cls_onoff">
+    <button type="button" class="btn btn-sm  btn-danger ">Tắt </button>
+    <button type="button" class="btn btn-sm  btn-default">Mở</button>
+    
+  </div>
+				</td>
+                 </tr>
+				       <tr>
+            <td align="right">Máy tạo oxy nhuyễn :</td>
+            <td align="center">
+                 <div class="btn-group cls_onoff">
+    <button type="button" class="btn btn-sm  btn-danger">Tắt </button>
+    <button type="button" class="btn btn-sm  btn-default">Mở</button>
+    
+  </div>
+				</td>
+                 </tr>
+    </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default cls_lang" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>
+
