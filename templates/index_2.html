@@ -310,58 +310,67 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
   
    <div class="modal fade" id="w02_control" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content" style="width:300px">
+      <div class="modal-content" style="width:400px">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title cls_lang" >Bảng Điều Kiển Thiết Bị</h4>
         </div>
         <div class="modal-body">
+          <input type="hidden" name="wasp_id" value="506437057C10542F" id="control_wasp_id">
           <div class="table-reponsive" id="">
            <table border="0" width="100%" id="" cellpadding="0">
-        <tr>
-            <td align="right">Đèn :</td>
-            <td align="center" >
-                <div class="btn-group cls_onoff">
-    <button type="button" class="btn btn-sm  btn-danger">Tắt </button>
-    <button type="button" class="btn btn-sm  btn-default">Mở</button>
-    
-  </div></td>
-             </tr>
-        <tr>
-            <td align="right">Máy bơm oxy đáy :</td>
-            <td align="center">
-                 <div class="btn-group cls_onoff">
-    <button type="button" class="btn btn-sm  btn-danger ">Tắt </button>
-    <button type="button" class="btn btn-sm  btn-default">Mở</button>
-    
-  </div>
-				</td>
-           
-        </tr>
-        <tr>
-            <td align="right">Máy quạt bề mặt :</td>
-            <td align="center">
-                 <div class="btn-group cls_onoff">
-    <button type="button" class="btn btn-sm  btn-danger ">Tắt </button>
-    <button type="button" class="btn btn-sm  btn-default">Mở</button>
-    
-  </div>
-				</td>
-                 </tr>
-				       <tr>
-            <td align="right">Máy tạo oxy nhuyễn :</td>
-            <td align="center">
-                 <div class="btn-group cls_onoff">
-    <button type="button" class="btn btn-sm  btn-danger">Tắt </button>
-    <button type="button" class="btn btn-sm  btn-default">Mở</button>
-    
-  </div>
-				</td>
-                 </tr>
-    </table>
+                <tr>
+                    <td align="right">Đèn :</td>
+                    <td align="center"><input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" maxlength="5" type="text" name="den_duration" style="width:90% ;" id="duration_den"></td>
+                    <td align="center" >
+                        <input type="hidden" name="control_den_status" value="0" id="control_den_status">
+                        <div class="btn-group cls_onoff">
+                            <button type="button" class="btn btn-sm  btn-danger" id="btct_den_off">Tắt </button>
+                            <button type="button" class="btn btn-sm  btn-default" id="btct_den_on">Mở</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Máy bơm oxy đáy :</td>
+                    <td align="center">
+                        <input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="oxyday_duration" style="width:90% ;" id="duration_oxyday"></td>
+                    <td align="center">
+                        <input type="hidden" name="control_oxyday_status" value="0" id="control_oxyday_status">
+                        <div class="btn-group cls_onoff">
+                            <button type="button" class="btn btn-sm  btn-danger " id="btct_oxyday_off">Tắt </button>
+                            <button type="button" class="btn btn-sm  btn-default" id="btct_oxyday_on">Mở</button>
+                        </div>
+
+                    </td>           
+                </tr>
+                <tr>
+                    <td align="right">Máy quạt bề mặt :</td>
+                    <td align="center"><input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="quat_duration" style="width:90% ;" id="duration_quat"></td>
+                    <td align="center">
+                        <input type="hidden" name="control_quat_status" value="0" id="control_quat_status">
+                        <div class="btn-group cls_onoff">
+                            <button type="button" class="btn btn-sm  btn-danger " id="btct_quat_off">Tắt </button>
+                            <button type="button" class="btn btn-sm  btn-default" id="btct_quat_on">Mở</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Máy tạo oxy nhuyễn :</td>
+                    <td align="center">
+                        <input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="oxynhuyen_duration" style="width:90% ;" id="duration_oxynhuyen"></td>
+                    <td align="center">
+                        <input type="hidden" name="control_oxynhuyen_status" value="0" id="control_oxynhuyen_status">
+                        <div class="btn-group cls_onoff">
+                            <button type="button" class="btn btn-sm  btn-danger" id="btct_oxynhuyen_off">Tắt </button>
+                            <button type="button" class="btn btn-sm  btn-default" id="btct_oxynhuyen_on">Mở</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-default cls_lang" id="updatetitle" onclick="runControlWasp()">Thực hiện</button>
           <button type="button" class="btn btn-default cls_lang" data-dismiss="modal">Đóng</button>
         </div>
       </div>

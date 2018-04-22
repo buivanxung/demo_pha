@@ -14,6 +14,7 @@ $objXajax->registerFunction("changeLang");
 $objXajax->registerFunction("ChangeSysName");
 $objXajax->registerFunction('frmchangepass_save');
 $objXajax->registerFunction('saveSysName');
+$objXajax->registerFunction('saveControlWasp');
 $sys_active = ACTIVE;
 $sys_deactive = DEACTIVE;
 $user_id = '';
@@ -382,4 +383,61 @@ function saveSysName($param){
     } 
    
    return $objResponse->getXML(); 
+}
+function saveControlWasp($param){
+    global $objDbSelect;
+    $objResponse = new xajaxResponse();
+    if(empty($param['control_wasp_id'])){
+      $objResponse->addAlert('Xin vui lòng thực hiện lại');
+      $objResponse->addScriptCall('location.reload();');	
+    }else{
+        $wasp_id   = $param['control_wasp_id'];
+        $sqlDelete = "delete from config_control where wasp_id = '$wasp_id'"; 
+        $arr       = $objDbSelect->Execute($sqlDelete);
+        $dataName  = array("DEN","OXY_DAY","QUAT","OXY_NHUYEN");
+        $str = '';
+        $time_current = $timestam = date('Y-m-d H:i');
+        $duration_den       = $param['duration_den'];
+        $duration_oxyday    = $param['duration_oxyday'];
+        $duration_quat      = $param['duration_quat'];
+        $duration_oxynhuyen = $param['duration_oxynhuyen'];
+        
+        $status_den      = $param['control_den_status'];
+        $status_oxyday   = $param['control_oxyday_status'];
+        $status_quat     = $param['control_quat_status'];
+        $status_oxynhuyen= $param['control_oxynhuyen_status'];
+        
+        $expired_den       = (!empty($status_den) && $duration_den > 0)?date('Y-m-d H:i', strtotime($time_current . " +$duration_den hours")):NULL;
+        $expired_oxyday    = (!empty($status_oxyday) && $duration_oxyday > 0)?date('Y-m-d H:i', strtotime($time_current . " +$duration_oxyday hours")):NULL;
+        $expired_quat      = (!empty($status_quat) && $duration_quat > 0)?date('Y-m-d H:i', strtotime($time_current . " +$duration_quat hours")):NULL;
+        $expired_oxynhuyen = (!empty($status_oxynhuyen) && $duration_oxynhuyen > 0)?date('Y-m-d H:i', strtotime($time_current . " +$duration_oxynhuyen hours")):NULL;
+        
+        for($i=0;$i<count($dataName);$i++){
+            $name =  $dataName[$i];
+            if($name == 'DEN') {
+                $str.= ",('$wasp_id','$name','$status_den','$duration_den','$time_current','$expired_den','$timestam')";
+            }
+            if($name == 'OXY_DAY') {
+                $str.= ",('$wasp_id','$name','$status_oxyday','$duration_oxyday','$time_current','$expired_oxyday','$timestam')";
+            }
+            if($name == 'QUAT') {
+                $str.= ",('$wasp_id','$name','$status_quat','$duration_quat','$time_current','$expired_quat','$timestam')";
+            }
+            if($name == 'OXY_NHUYEN') {
+                $str.= ",('$wasp_id','$name','$status_oxynhuyen','$duration_oxynhuyen','$time_current','$expired_oxynhuyen','$timestam')";
+            }
+        }
+        if(strlen($str)>1){
+            $str = substr($str, 1);
+            $sql = "INSERT INTO config_control(wasp_id,name,status,duration,time_current,time_expired,timestamp) values$str";            
+        }
+        if($objDbSelect->Execute($sql)){
+           $objResponse->addAlert('Cập Nhật Thành Công'); 
+           $objResponse->addScript("$('#w02_control').modal('hide')"); 
+           //$objResponse->addScriptCall('location.reload();');		 
+        }else{
+           $objResponse->addAlert('Cập nhật thất bại'); 
+        }       
+    }    
+    return $objResponse->getXML(); 
 }
