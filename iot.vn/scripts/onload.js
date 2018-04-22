@@ -66,7 +66,6 @@ var arrExtSensor= ['-1'];
              $('#w01_txt_locname').val(html);
              $('#w01_txt_locname').removeClass('cls_alert');
              $('#w01_hd_wm').val(wm);
-;
       });
       $('#w01_savename').click(function(){ 
            name = $.trim($('#w01_txt_locname').val());
@@ -476,7 +475,44 @@ function changeCssInfowin() {
      xajax_saveSysName(param);
   }
    
-
-
-
-
+  function runControlWasp(){
+    var param = new Array();
+    if($.trim($('#control_wasp_id').val())==''){
+         alert('Hệ thống hiện không xác nhận được ID thiết bị');
+    }
+    param['control_wasp_id']=$('#control_wasp_id').val();
+    param['duration_den']=$('#duration_den').val();
+    param['duration_oxyday']=$('#duration_oxyday').val();
+    param['duration_quat']=$('#duration_quat').val();
+    param['duration_oxynhuyen']=$('#duration_oxynhuyen').val();
+    param['control_den_status']=$('#control_den_status').val();
+    param['control_oxyday_status']=$('#control_oxyday_status').val();
+    param['control_quat_status']=$('#control_quat_status').val();
+    param['control_oxynhuyen_status']=$('#control_oxynhuyen_status').val();
+    console.log(param);
+    xajax_saveControlWasp(param);
+  }
+$(document).delegate('#btct_den_off','click',function(){  
+    $('#control_den_status').val('0');
+});
+$(document).delegate('#btct_den_on','click',function(){ 
+    $('#control_den_status').val('1');
+}) ;
+$(document).delegate('#btct_oxyday_off','click',function(){
+    $('#control_oxyday_status').val('0');
+});
+$(document).delegate('#btct_oxyday_on','click',function(){
+    $('#control_oxyday_status').val('1');
+});
+$(document).delegate('#btct_quat_off','click',function(){
+    $('#control_quat_status').val('0');
+});
+$(document).delegate('#btct_quat_on','click',function(){
+    $('#control_quat_status').val('1');
+});
+$(document).delegate('#btct_oxynhuyen_off','click',function(){
+    $('#control_oxynhuyen_status').val('0');
+});
+$(document).delegate('#btct_oxynhuyen_on','click',function(){
+    $('#control_oxynhuyen_status').val('1');
+});
