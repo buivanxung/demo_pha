@@ -1,4 +1,4 @@
-﻿  function cl_tracking(w_type){
+  function cl_tracking(w_type){
     var obj = new Object();   
     obj.arrLastTime  = new Object();
        $.ajax({
@@ -45,7 +45,7 @@
                             arrMarker[id_wasp_pre]=createMarker(id_wasp_pre,flg_alert);
                             flg_alert = false;  
                           }              
-                         str_info =  '<div ><div ><font data-toggle="modal" class="cls_locname" data-target="#w01_changename" id="w01_info-'
+                         str_info =  '<div ><div ><font data-toggle="modal" data-target="#w01_changename" id="w01_info-'
                          +id_wasp_new+'"  data="'+id_wasp_new+'">'
                          + ((lang_iot=='vi')?fm_info.waspmote[id_wasp_new]['name_vi']:fm_info.waspmote[id_wasp_new]['name_en'] )
                          +'</font></div>';// tao ten cua khu vuc

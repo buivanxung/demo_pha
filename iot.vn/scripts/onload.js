@@ -66,6 +66,7 @@ var arrExtSensor= ['-1'];
              $('#w01_txt_locname').val(html);
              $('#w01_txt_locname').removeClass('cls_alert');
              $('#w01_hd_wm').val(wm);
+;
       });
       $('#w01_savename').click(function(){ 
            name = $.trim($('#w01_txt_locname').val());
@@ -157,7 +158,7 @@ var arrExtSensor= ['-1'];
       }
     });
     
-   // xajax_ChangeSysName();             
+    xajax_ChangeSysName();             
           
     })
      
@@ -217,7 +218,7 @@ changeWaiting(0);
           $('#w02_dt_date').html(" "+strdate);
           $('#w02_dt_time').html(" "+strtime);
           $('#w02_dt_sn').html('S/N: ' + fm_info.waspmote[val].serie_num);
-          $('#w02_dt_cbb_wm').val(val);
+          $('#w02_dt_cbb_wm').val(val);          
           ss = fm_info.wt_sensor[1];
            var arrChart= [];
              $.ajax({
@@ -275,8 +276,9 @@ changeWaiting(0);
                       } 
                     }
               } 
-              $('#w02_body_info').html(str);
- 
+                $('#w02_body_info').html(str);
+                $('#w02_user_dieukhien').html(getData['user_dieukhien']);
+                $('#w02_trangthai_dieukhien').html(getData['trangthai_dieukhien']);
                 $('#w02_chart_dt_current').highcharts({
                     chart: {
                         type: 'column'
@@ -474,24 +476,19 @@ function changeCssInfowin() {
      param['id']=$('#w01_hd_sysNameId').val(); 
      xajax_saveSysName(param);
   }
-   
-  function runControlWasp(){
+
+function runControlWasp(){
     var param = new Array();
     if($.trim($('#control_wasp_id').val())==''){
          alert('Hệ thống hiện không xác nhận được ID thiết bị');
     }
-    param['control_wasp_id']=$('#control_wasp_id').val();
-    param['duration_den']=$('#duration_den').val();
-    param['duration_oxyday']=$('#duration_oxyday').val();
-    param['duration_quat']=$('#duration_quat').val();
-    param['duration_oxynhuyen']=$('#duration_oxynhuyen').val();
+    param['control_wasp_id']=$('#control_wasp_id').val(); 
     param['control_den_status']=$('#control_den_status').val();
     param['control_oxyday_status']=$('#control_oxyday_status').val();
     param['control_quat_status']=$('#control_quat_status').val();
     param['control_oxynhuyen_status']=$('#control_oxynhuyen_status').val();
-    console.log(param);
     xajax_saveControlWasp(param);
-  }
+}
 $(document).delegate('#btct_den_off','click',function(){  
     $('#control_den_status').val('0');
 });
@@ -516,3 +513,63 @@ $(document).delegate('#btct_oxynhuyen_off','click',function(){
 $(document).delegate('#btct_oxynhuyen_on','click',function(){
     $('#control_oxynhuyen_status').val('1');
 });
+$(document).delegate('#w02_dt_btn_control','click',function(){
+    var val;
+    val = $('#w02_dt_cbb_wm').val();    
+    var arrChart= [];
+     $.ajax({
+        url: 'tracking_back_control.php',
+        type: 'POST',
+        data:{
+            wm_id:val,
+        } ,
+        cache: false,            
+        success: function(string){
+            index_str = string.indexOf('{"lastdata"');
+            str_final = string.substring(index_str);
+            var getData = JSON.parse(str_final);            
+            $('#control_wasp_id').val(val);         
+            if(getData['lastdata']['DEN'] == 1) {
+                $('#btct_den_off').removeClass('btn-danger');
+                $('#control_den_status').val('1');
+                $('#btct_den_on').addClass('btn-danger');
+            } else {
+                $('#btct_den_off').addClass('btn-danger');
+                $('#btct_den_on').removeClass('btn-danger');
+                $('#control_den_status').val('0');
+            }
+            if(getData['lastdata']['OXY_DAY'] == 1) {
+                $('#control_oxyday_status').val('1');
+                $('#btct_oxyday_off').removeClass('btn-danger');
+                $('#btct_oxyday_on').addClass('btn-danger');
+            } else {
+                $('#control_oxyday_status').val('0');
+                $('#btct_oxyday_off').addClass('btn-danger');
+                $('#btct_oxyday_on').removeClass('btn-danger');
+            }
+            if(getData['lastdata']['QUAT'] == 1) {
+                $('#control_quat_status').val('1');
+                $('#btct_quat_off').removeClass('btn-danger');
+                $('#btct_quat_on').addClass('btn-danger');
+            } else {
+                $('#control_oxyday_status').val('0');
+                $('#btct_quat_off').addClass('btn-danger');
+                $('#btct_quat_on').removeClass('btn-danger');
+            }
+            if(getData['lastdata']['OXY_NHUYEN'] == 1) {
+                $('#control_oxynhuyen_status').val('1');
+                $('#btct_oxynhuyen_off').removeClass('btn-danger');
+                $('#btct_oxynhuyen_on').addClass('btn-danger');
+            } else {
+                $('#control_oxynhuyen_status').val('0');
+                $('#btct_oxynhuyen_off').addClass('btn-danger');
+                $('#btct_oxynhuyen_on').removeClass('btn-danger');
+            }
+        },
+    });
+   $('#w02_control').modal('show');
+});
+
+
+
+

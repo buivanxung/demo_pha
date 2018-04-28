@@ -19,17 +19,15 @@ $s_status = 'OFF';
 $str      = "";
 if(isset($_REQUEST[$wasp_id]) && $_REQUEST[$wasp_id]!=''){
     $waspmote = $_REQUEST[$wasp_id];
-    $sqlData  = "select * from config_control where wasp_id = '$waspmote'"; 
+    $sqlData  = "select * from config_control where wasp_id = '$waspmote' AND num = (select MAX(num) FROM config_control)"; 
     $arr      = $objDbSelect->GetArray($sqlData);
     if (isset($_GET) && count($_GET) >0 && count($arr) > 0) {
         foreach ($arr as $key => $value){
             $name = $value['name'];
             if(in_array($name, $dataName)) {
-                if($value['status'] > 0 && strtotime($value['time_expired']) == 0) {
+                if($value['status'] > 0 ) {
                     $s_status = 'ON';
-                } else if($value['status'] > 0 && strtotime($value['time_expired']) > 0 && time() < strtotime($value['time_expired'])) {
-                    $s_status = 'ON';
-                } else {
+                }  else {
                     $s_status = 'OFF';
                 }
                 $str .= "$name:$s_status,";

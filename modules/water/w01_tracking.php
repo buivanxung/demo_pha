@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $objXajax->registerFunction("w01_loadGrid");      
 $objXajax->registerFunction("w01_savelocname");      
@@ -20,7 +20,6 @@ function  w01_getGrid(){
     global $lang,$objDbSelect;
     $objResponse = new xajaxResponse();// dong luon luon co khi goi ham ajax
     $sql = "update tbl_waspmote set name_$lang= '$name' where id = '$id'";
-
     if($objDbSelect->Execute($sql)){
         $objResponse->addScriptCall("changeWMName('$name','$id')");   
     }else{

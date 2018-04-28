@@ -62,12 +62,10 @@ function getCookie(name) {
     }
     var numday_report =[var._SESSION.num_day];   
     var power_type    =[var._SESSION.current.power_type_id]; 
-    
-  $(document).delegate('.cls_onoff button','click',function(){
+    $(document).delegate('.cls_onoff button','click',function(){
 	$(this).parent().find('button').removeClass('btn-danger').addClass('btn-default');
 	$(this).addClass('btn-danger');
-  });
-          
+    }); 
     </script> 
 
 <script src="iot.vn/scripts/bootstrap.min.js"></script>
@@ -86,7 +84,7 @@ function getCookie(name) {
  <script type="text/javascript" src="iot.vn/scripts/charts/highcharts.js"> </script>
 <script type="text/javascript" src="iot.vn/scripts/charts/highcharts.exporting.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOJht5W8PnJzEwBLQkW67TNUMbYp6AlMY&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFW_u590CNttW1oxQe21IhZlO_yOdCDNQ&callback=initMap"></script>
 <script src="iot.vn/scripts/charts/highcharts.more.js"></script>
 <script type="text/javascript" src="iot.vn/scripts/onload.js"></script>
 
@@ -103,7 +101,7 @@ function getCookie(name) {
 <div class="container-fluid" >
 <div class="row cls_block" id="div_header" style="padding-top:10px;padding-bottom:5px">
 <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="padding-top:10px">
-  <img src="iot.vn/images/minhphu.jpg"  height="100px" id="img_logo" style="background-color:transparent">
+  <img src="iot.vn/images/PHA_Logo_Iot.png" height="100px" id="img_logo" style="background-color:transparent">
   </div> 
   <div   class="col-xs-12 col-sm-12 col-md-8 col-lg-8" align="center">
   <h4 style="float:center;color:#337ab7;font-family:times;padding-top:10px;" onclick="asignId(this)" class="cls_lang named" id="sys_title" data-toggle="modal" data-target="#w01_changeSysName"><b>HỆ THỐNG TỰ ĐỘNG GIÁM SÁT </b> </h4><h4 style="float:center;color:#337ab7;font-family:times" class="cls_lang named" onclick="asignId(this)" id="sys_subtitle" data-toggle="modal" data-target="#w01_changeSysName"><b>
@@ -307,21 +305,19 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
  
     </div>
   </div>
-  
-   <div class="modal fade" id="w02_control" role="dialog">
+<div class="modal fade" id="w02_control" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content" style="width:450px">
+      <div class="modal-content" style="width:300px">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title cls_lang" >Bảng Điều Kiển Thiết Bị</h4>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="wasp_id" value="506437057C10542F" id="control_wasp_id">
+          <input type="hidden" name="wasp_id" value="" id="control_wasp_id">
           <div class="table-reponsive" id="">
            <table border="0" width="100%" id="" cellpadding="0">
                 <tr>
                     <td align="right">Đèn :</td>
-                    <td align="center"><input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" maxlength="5" type="text" name="den_duration" style="width:90% ;" id="duration_den"></td>
                     <td align="center" >
                         <input type="hidden" name="control_den_status" value="0" id="control_den_status">
                         <div class="btn-group cls_onoff">
@@ -331,9 +327,7 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Máy bơm oxy đáy :</td>
-                    <td align="center">
-                        <input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="oxyday_duration" style="width:90% ;" id="duration_oxyday"></td>
+                    <td align="right">Máy bơm oxy đáy :</td>                    
                     <td align="center">
                         <input type="hidden" name="control_oxyday_status" value="0" id="control_oxyday_status">
                         <div class="btn-group cls_onoff">
@@ -345,7 +339,6 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
                 </tr>
                 <tr>
                     <td align="right">Máy quạt bề mặt :</td>
-                    <td align="center"><input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="quat_duration" style="width:90% ;" id="duration_quat"></td>
                     <td align="center">
                         <input type="hidden" name="control_quat_status" value="0" id="control_quat_status">
                         <div class="btn-group cls_onoff">
@@ -356,8 +349,6 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
                 </tr>
                 <tr>
                     <td align="right">Máy tạo oxy nhuyễn :</td>
-                    <td align="center">
-                        <input class="txtRequired" placeholder="Thời gian(giờ) VD: 5" type="text" name="oxynhuyen_duration" style="width:90% ;" id="duration_oxynhuyen"></td>
                     <td align="center">
                         <input type="hidden" name="control_oxynhuyen_status" value="0" id="control_oxynhuyen_status">
                         <div class="btn-group cls_onoff">
@@ -376,7 +367,6 @@ CHẤT LƯỢNG NƯỚC AO NUÔI CÁ TRA </b></h4>
       </div>
     </div>
   </div>
-
   </body>
 </html>
 

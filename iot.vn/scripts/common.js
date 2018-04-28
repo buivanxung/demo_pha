@@ -1638,7 +1638,6 @@ function asignId(obj){
         $('#newtitle_vi').val(text_vi) ;
         $('#oldtitle_en').text(text_en) ;
         $('#newtitle_en').val(text_en) ;
-    } 
-	
+    }  
 }
    // tạo  bảng header cho bang   
